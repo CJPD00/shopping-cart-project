@@ -1,7 +1,5 @@
 
 
-
-
 const CarritoScreen = () => {
 
     return (
@@ -17,16 +15,18 @@ const CarritoScreen = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+
+                    <tr >
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
+
                 </tbody>
             </table>
 
-            <div className="d-grid gap-2"> 
+            <div className="d-grid gap-2">
                 <button className="btn btn-primary">comprar</button>
             </div>
         </>
