@@ -1,8 +1,21 @@
 import { useState } from "react"
 
-const Card = ({ imagen, titulo, descripcion, precio }) => {
+const Card = ({ imagen, titulo, descripcion, precio, handleAgregar, handleEliminar }) => {
 
     const [add, setadd] = useState(false)
+
+    const handleAdd = () => {
+
+        handleAgregar()
+        setadd(true)
+
+    }
+
+    const handleDelete = () => {
+
+        handleEliminar()
+        setadd(false)
+    }
 
     return (
 
@@ -21,11 +34,11 @@ const Card = ({ imagen, titulo, descripcion, precio }) => {
                         ? <button
                             type="button"
                             className="boton-quitar"
-                            onClick={()=>{setadd(!add)}}>Eliminar del carrito</button>
+                            onClick={()=>handleDelete()}>Eliminar del carrito</button>
                         : <button
                             type="button"
                             className="boton-agregar"
-                            onClick={()=>{setadd(!add)}}>Agregar al carrito</button>
+                            onClick={()=>handleAdd()}>Agregar al carrito</button>
                 }
 
             </div>

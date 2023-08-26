@@ -23,6 +23,7 @@ function App() {
             <Route path='/*' element={<Navigate to='/'></Navigate>}></Route>
           </Routes>
         </div>
+        
       </CarritoProvider>
     </ProductosProvider>
 

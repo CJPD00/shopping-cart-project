@@ -11,10 +11,18 @@ const comprasReducer = (state = initialState, action = {}) => {
             return [...state, action.payload];
 
         case '[carrito]aumentar':
-            return state
+            return state.map(prod => {
+                const cant = prod.cantidad + 1
+                if (prod.id === action.payload) return { ...prod, cantidad: cant }
+                return prod
+            })
 
         case '[carrito]disminuir':
-            return state
+            return state.map(prod => {
+                const cant = prod.cantidad - 1
+                if (prod.id === action.payload && prod.cantidad > 1) return { ...prod, cantidad: cant }
+                return prod
+            })
 
         case '[carrito]eliminar':
             return state.filter(prod => prod.id !== action.payload);
@@ -30,6 +38,8 @@ export const CarritoProvider = ({ children }) => {
     const [lista, dispatch] = useReducer(comprasReducer, initialState)
 
     const agregarCompra = (compra) => {
+
+        compra.cantidad = 1
 
         const action = {
             type: '[carrito]agregar',
